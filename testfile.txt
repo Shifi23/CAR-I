@@ -1,0 +1,8 @@
+Hi this is a test
+
+this is another test
+
+I hope you are ok
+v4l2-ctl --list-devices
+
+hope
