@@ -8,10 +8,13 @@ const Navbar = () => {
 
 
     const [dateState, setDateState] = useState(new Date());
+    const hour = (dateState.getHours())
     useEffect(() => {
         setInterval(() => setDateState(new Date()), 30000);
     }, []);
-    const welcome = "Hello Shuhrat!"
+
+    const welcome = ((hour < 3 && "Its Late, Drive Safe") || (hour < 12 && "Good Morning") || (hour < 17 && "Good Afternoon") || (hour < 22 && "Good Evening")) + " Shuhrat"
+    const [door, setDoor] = useState("Locked");
     return (
         <nav className="navbar">
             <h1>{welcome}</h1>
@@ -21,28 +24,34 @@ const Navbar = () => {
                 {/* <Link to="/create">Create</Link> */}
                 <Link to="/test">Test</Link>
 
-                <a>
-                    {dateState.toLocaleDateString('en-US', {
-                        weekday: 'long',
-                        month: 'short',
-                        day: 'numeric',
-                        year: 'numeric',
-                    })}
-                    {"   "}
-                    {dateState.toLocaleString('en-US', {
-                        hour: 'numeric',
-                        minute: 'numeric',
-                        hour12: true,
-                    })}
-                </a>
-                <a>
 
-                </a>
 
 
 
             </div>
-            <img src={logo} alt='' />
+
+
+
+            <a>
+                {dateState.toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric',
+                })}
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                {dateState.toLocaleString('en-US', {
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    hour12: true,
+                })}
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+
+            <div className="lockunlock">
+                <span className={door === "Unlocked" ? "lock unlocked" : "lock"}></span>
+            </div>
+
         </nav>
     );
 }
