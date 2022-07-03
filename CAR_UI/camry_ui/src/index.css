@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+/* base styles */
+* {
+  margin: 0;
+  font-family: "Quicksand";
+  box-sizing: border-box;
+  --locked-color: #5fadbf;
+  --unlocked-color: #ff5153;
+
+  color: #333;
+}
+.navbar {
+  padding: 20px;
+  position: fixed;
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  /* overflow-x: auto; */
+  border-top: 1px solid #f2f2f2;
+  /* margin: 0 auto; */
+  width: 100%;
+}
+.navbar h1 {
+  color: #3e96fc;
+}
+.navbar .links {
+  display: flex;
+  flex-grow: 1;
+  min-width: 50px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.navbar a {
+  margin-left: 16px;
+  text-decoration: none;
+  padding-left: 100px;
+}
+.navbar a:hover {
+  color: #3e96fc;
+}
+.content {
+  /* max-width: 600px; */
+  margin: 40px auto;
+  padding: 20px;
+}
+/* blog previews / list */
+.blog-preview {
+  padding: 10px 16px;
+  margin: 20px 0;
+  border-bottom: 1px solid #fafafa;
+}
+.blog-preview:hover {
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+}
+.blog-preview h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 8px;
+}
+
+.btn-group button {
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  width: 200px; /* Set a width if needed */
+  display: block; /* Make the buttons appear below each other */
+  margin-bottom: 2%;
+  margin-top: 2%;
+}
+
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1px;
+}
+
+
+/*lock unlock button*/
+.lockunlock {
+  display: flex;
+  padding-top: 20px;
+  /* align-items: center;
+  justify-content: center; */
+}
+/* :::::::::::::: Required CSS */
+/* Locked */
+.lock {
+  width: 24px;
+  height: 21px;
+  border: 3px solid var(--locked-color);
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+.lock:after {
+  content: "";
+  display: block;
+  background: var(--locked-color);
+  width: 3px;
+  height: 7px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -3.5px 0 0 -2px;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+.lock:before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  bottom: 100%;
+  position: absolute;
+  left: 50%;
+  margin-left: -8px;
+  border: 3px solid var(--locked-color);
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+  border-bottom: 0;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+/* Locked Hover */
+.lock:hover:before {
+  height: 12px;
+}
+/* Unlocked */
+.unlocked {
+  transform: rotate(10deg);
+}
+.unlocked:before {
+  bottom: 130%;
+  left: 31%;
+  margin-left: -11.5px;
+  transform: rotate(-45deg);
+}
+.unlocked,
+.unlocked:before {
+  border-color: var(--unlocked-color);
+}
+.unlocked:after {
+  background: var(--unlocked-color);
+}
+/* Unlocked Hover */
+.unlocked:hover {
+  transform: rotate(3deg);
+}
+.unlocked:hover:before {
+  height: 10px;
+  left: 40%;
+  bottom: 124%;
+  transform: rotate(-30deg);
+}
