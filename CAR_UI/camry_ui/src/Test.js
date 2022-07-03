@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Ultrasound from "./Ultrasound";
 
 const Test = () => {
     // let engine_status = 'on';
     const [engine_status, set_engine_status] = useState('off');
-    const [lights,setLights] = useState('off');
+    const [lights, setLights] = useState('off');
     const [door, setDoor] = useState("Locked");
     const [voltage, setVoltage] = useState('null')
 
@@ -23,7 +23,7 @@ const Test = () => {
 
             }
         )
-        
+
     }
 
     const handleCLick_ENS = () => {
@@ -45,7 +45,7 @@ const Test = () => {
         ).then(
             lights => {
                 setLights(lights)
-            
+
 
             }
         )
@@ -60,7 +60,7 @@ const Test = () => {
         ).then(
             door => {
                 setDoor(door)
-          
+
 
             }
         )
@@ -74,7 +74,7 @@ const Test = () => {
         ).then(
             door => {
                 setDoor(door)
-           
+
 
             }
         )
@@ -89,7 +89,7 @@ const Test = () => {
         ).then(
             voltage => {
                 setVoltage(voltage)
-           
+
 
             }
         )
@@ -97,30 +97,28 @@ const Test = () => {
 
     }
 
-//     useEffect(() => {
+    //     useEffect(() => {
 
-//     const interval = setInterval(() => {
-//         fetch("http://localhost:5000/Voltage").then(
-//             res => res.text()
-//         ).then(
-//             voltage => {
-//                 setVoltage(voltage)
-    
-    
-//             }
-//         )
-        
-
-//       }, 30000);
-
-      
-
-//     return () => clearInterval(interval);
+    //     const interval = setInterval(() => {
+    //         fetch("http://localhost:5000/Voltage").then(
+    //             res => res.text()
+    //         ).then(
+    //             voltage => {
+    //                 setVoltage(voltage)
 
 
-// });
+    //             }
+    //         )
 
 
+    //       }, 30000);
+
+
+
+    //     return () => clearInterval(interval);
+
+
+    // });
 
 
 
@@ -128,68 +126,70 @@ const Test = () => {
 
 
 
-    return ( 
-   
+
+
+    return (
+
         <>
-        <h1 style={{paddingBottom: "50px"}}>System Test UI</h1>
-        <div className="grid-container">
-        <div className="grid-child">
-        <h3>Controls:</h3>
-        <div className="btn-group">
-        <button onClick={handleCLick_EN}>Start Engine</button>
-        <button onClick={handleCLick_ENS}>Stop Engine</button>
-        <button onClick={handleCLick_UL}>Unlock Doors</button>
-        <button onClick={handleCLick_LOC}>Lock Doors</button>
-        <button onClick={handleCLick_LI}>Parking Lights</button>
-        </div>
-        
-        <h3 style={{paddingTop: "40px"}}>System Status Messages:</h3>
-        <p style={{paddingTop: "10px"}}>Engine Status: {engine_status}</p>
-        <p>Parking Light Status: {lights}</p>
-        <p>Doors Status: {door}</p>
-        <div   className="lockunlock">
-            <span className={door === "Unlocked" ? "lock unlocked" : "lock"}></span>   
-        </div>
-        </div>
+            <h1 style={{ paddingBottom: "50px" }}>System Test UI</h1>
+            <div className="grid-container">
+                <div className="grid-child">
+                    <h3>Controls:</h3>
+                    <div className="btn-group">
+                        <button onClick={handleCLick_EN}>Start Engine</button>
+                        <button onClick={handleCLick_ENS}>Stop Engine</button>
+                        <button onClick={handleCLick_UL}>Unlock Doors</button>
+                        <button onClick={handleCLick_LOC}>Lock Doors</button>
+                        <button onClick={handleCLick_LI}>Parking Lights</button>
+                    </div>
 
-   
-        <div className="grid-child">
-        <h3>Camera's:</h3>
-            <img src={"http://localhost:5000/camera"} alt='Front Camera'width={320} height={240} ></img>
-            {/* <img src={"http://localhost:5000/camera"} alt='Front Camera' width={320} height={240} ></img> */}
+                    <h3 style={{ paddingTop: "40px" }}>System Status Messages:</h3>
+                    <p style={{ paddingTop: "10px" }}>Engine Status: {engine_status}</p>
+                    <p>Parking Light Status: {lights}</p>
+                    <p>Doors Status: {door}</p>
+                    <div className="lockunlock">
+                        <span className={door === "Unlocked" ? "lock unlocked" : "lock"}></span>
+                    </div>
+                </div>
 
 
-
-        </div>
-
-        <div className="grid-child">
-            <h3>Ultrasound Sensor Data:</h3>
-            <Ultrasound></Ultrasound>
-
-            
+                <div className="grid-child">
+                    <h3>Camera's:</h3>
+                    {/* <img src={"http://localhost:5000/camera"} alt='Front Camera' width={320} height={240} ></img> */}
+                    {/* <img src={"http://localhost:5000/camera"} alt='Front Camera' width={320} height={240} ></img> */}
 
 
-        </div>
-        <div className="grid-child">
-            <h3>OBD-II Data:</h3>
-            <p style={{paddingTop: "10px"}} onClick={handleCLick_VOL}>Voltage: {voltage}</p>
-            <p> Speed: Igniton is off</p>
-            <p> RPM: Igniton is off</p>
-            <p> Engine Load: Igniton is off</p>
-            <p> Fuel: Igniton is off</p>
+
+                </div>
+
+                <div className="grid-child">
+                    <h3>Ultrasound Sensor Data:</h3>
+                    <Ultrasound></Ultrasound>
 
 
-        </div>
 
-        </div>
-      
-  
+
+                </div>
+                <div className="grid-child">
+                    <h3>OBD-II Data:</h3>
+                    <p style={{ paddingTop: "10px" }} onClick={handleCLick_VOL}>Voltage: {voltage}</p>
+                    <p> Speed: Igniton is off</p>
+                    <p> RPM: Igniton is off</p>
+                    <p> Engine Load: Igniton is off</p>
+                    <p> Fuel: Igniton is off</p>
+
+
+                </div>
+
+            </div>
+
+
         </>
-        
 
 
 
-     );
+
+    );
 }
- 
+
 export default Test;
