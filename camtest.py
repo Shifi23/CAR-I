@@ -34,11 +34,11 @@ def camPreview(previewName, camID):
 thread1 = camThread("Camera 1", 1)
 thread2 = camThread("Camera 2", 2)
 thread3 = camThread("Camera 3", 2)
-thread4 = camThread("Camera 4", 4)
+thread4 = camThread("Camera 4", 2)
 
 thread4.start()
 #thread2.start()
-thread3.start()
+# thread3.start()
 # thread4.start()
 print()
 print("Active threads", threading.activeCount())

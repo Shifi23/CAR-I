@@ -1,15 +1,12 @@
-#!/usr/bin/env python3
+import obd
 
-if __name__ == "__main__":
-    import obd
+connection = obd.OBD()  # auto-connects to USB or RF port
 
-    connection = obd.OBD()  # auto-connects to USB or RF port
+cmd = obd.commands.ELM_VOLTAGE  # select an OBD command (sensor)
 
-    cmd = obd.commands.ELM_VOLTAGE  # select an OBD command (sensor)
+response = connection.query(cmd)  # send the command, and parse the response
 
-    response = connection.query(cmd)  # send the command, and parse the response
-
-    print(response.value)  # returns unit-bearing values thanks to Pint
+print(response.value)  # returns unit-bearing values thanks to Pint
 # print(response.value.to("mph")) # user-friendly unit conversions
 # 00:1D:A5:0A:85:FB
 # connection = obd.Async(fast=True, baudrate=500000)

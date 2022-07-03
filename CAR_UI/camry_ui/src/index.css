@@ -4,26 +4,37 @@
 * {
   margin: 0;
   font-family: "Quicksand";
+  box-sizing: border-box;
+  --locked-color: #5fadbf;
+  --unlocked-color: #ff5153;
+
   color: #333;
 }
 .navbar {
   padding: 20px;
-  display: flex;
+  position: fixed;
   align-items: center;
-  /* max-width: 600px; */
-  margin: 0 auto;
-  border-bottom: 1px solid #f2f2f2;
+  bottom: 0;
+  display: flex;
+  /* overflow-x: auto; */
+  border-top: 1px solid #f2f2f2;
+  /* margin: 0 auto; */
+  width: 100%;
 }
 .navbar h1 {
   color: #3e96fc;
 }
 .navbar .links {
-  margin-left: auto;
+  display: flex;
+  flex-grow: 1;
+  min-width: 50px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .navbar a {
   margin-left: 16px;
   text-decoration: none;
-  padding: 6px;
+  padding-left: 100px;
 }
 .navbar a:hover {
   color: #3e96fc;
@@ -51,22 +62,97 @@
 .btn-group button {
   padding: 10px 24px; /* Some padding */
   cursor: pointer; /* Pointer/hand icon */
-  width: 50%; /* Set a width if needed */
+  width: 200px; /* Set a width if needed */
   display: block; /* Make the buttons appear below each other */
-  margin-bottom: 5%;
-  margin-top: 5%;
+  margin-bottom: 2%;
+  margin-top: 2%;
 }
 
-/* Three image containers (use 25% for four, and 50% for two, etc) */
-.column {
-  float: left;
-  width: 33.33%;
-  padding: 5px;
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1px;
 }
 
-/* Clear floats after image containers */
-.row::after {
+
+/*lock unlock button*/
+.lockunlock {
+  display: flex;
+  padding-top: 20px;
+  /* align-items: center;
+  justify-content: center; */
+}
+/* :::::::::::::: Required CSS */
+/* Locked */
+.lock {
+  width: 24px;
+  height: 21px;
+  border: 3px solid var(--locked-color);
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+.lock:after {
   content: "";
-  clear: both;
-  display: table;
+  display: block;
+  background: var(--locked-color);
+  width: 3px;
+  height: 7px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -3.5px 0 0 -2px;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+.lock:before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  bottom: 100%;
+  position: absolute;
+  left: 50%;
+  margin-left: -8px;
+  border: 3px solid var(--locked-color);
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+  border-bottom: 0;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+/* Locked Hover */
+.lock:hover:before {
+  height: 12px;
+}
+/* Unlocked */
+.unlocked {
+  transform: rotate(10deg);
+}
+.unlocked:before {
+  bottom: 130%;
+  left: 31%;
+  margin-left: -11.5px;
+  transform: rotate(-45deg);
+}
+.unlocked,
+.unlocked:before {
+  border-color: var(--unlocked-color);
+}
+.unlocked:after {
+  background: var(--unlocked-color);
+}
+/* Unlocked Hover */
+.unlocked:hover {
+  transform: rotate(3deg);
+}
+.unlocked:hover:before {
+  height: 10px;
+  left: 40%;
+  bottom: 124%;
+  transform: rotate(-30deg);
 }
