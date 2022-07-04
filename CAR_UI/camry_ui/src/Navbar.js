@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import logo from './images/logo.png';
-
-
+import { lightTheme, darkTheme, GlobalStyles } from "./themes.js";
+import styled, { ThemeProvider } from "styled-components";
 
 const Navbar = () => {
 
@@ -15,22 +15,19 @@ const Navbar = () => {
 
     const welcome = ((hour < 3 && "Its Late, Drive Safe") || (hour < 12 && "Good Morning") || (hour < 17 && "Good Afternoon") || (hour < 22 && "Good Evening")) + " Shuhrat"
     const [door, setDoor] = useState("Locked");
+
     return (
+
+
         <nav className="navbar">
             <h1>{welcome}</h1>
+
             {/* <span className="lock"></span> */}
             <div className="links">
                 <Link to="/home">Home</Link>
                 {/* <Link to="/create">Create</Link> */}
-                <Link to="/test">Test</Link>
-
-
-
-
-
+                <Link to="/test" >Test</Link>
             </div>
-
-
 
             <a>
                 {dateState.toLocaleDateString('en-US', {

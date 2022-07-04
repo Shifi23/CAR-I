@@ -1,6 +1,9 @@
 import { useState } from "react";
 import Ultrasound from "./Ultrasound";
 
+
+
+
 const Test = () => {
     // let engine_status = 'on';
     const [engine_status, set_engine_status] = useState('off');
@@ -97,30 +100,6 @@ const Test = () => {
 
     }
 
-    //     useEffect(() => {
-
-    //     const interval = setInterval(() => {
-    //         fetch("http://localhost:5000/Voltage").then(
-    //             res => res.text()
-    //         ).then(
-    //             voltage => {
-    //                 setVoltage(voltage)
-
-
-    //             }
-    //         )
-
-
-    //       }, 30000);
-
-
-
-    //     return () => clearInterval(interval);
-
-
-    // });
-
-
 
 
 
@@ -131,7 +110,7 @@ const Test = () => {
     return (
 
         <>
-            <h1 style={{ paddingBottom: "50px" }}>System Test UI</h1>
+            <h1 style={{ paddingBottom: "50px" }}>System Test-beta</h1>
             <div className="grid-container">
                 <div className="grid-child">
                     <h3>Controls:</h3>
@@ -155,7 +134,7 @@ const Test = () => {
 
                 <div className="grid-child">
                     <h3>Camera's:</h3>
-                    {/* <img src={"http://localhost:5000/camera"} alt='Front Camera' width={320} height={240} ></img> */}
+                    <img src={"http://localhost:5000/camera"} alt='Front Camera' width={320} height={240} ></img>
                     {/* <img src={"http://localhost:5000/camera"} alt='Front Camera' width={320} height={240} ></img> */}
 
 

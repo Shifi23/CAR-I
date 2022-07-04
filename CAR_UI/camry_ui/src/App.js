@@ -4,29 +4,74 @@ import Home from './Home';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Create from './Create';
 import Test from './Test';
+import styled, { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme, GlobalStyles } from "./themes.js";
+import { useState } from "react"
+import { CgSun } from "react-icons/cg";
+import { HiMoon } from "react-icons/hi";
+
+
+const StyledApp = styled.div`
+  color: ${(props) => props.theme.fontColor};
+  background-color: ${props => props.theme.body};
+
+`;
+const Toggle = styled.button`
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 20px;
+    right: 20px; 
+    border-radius: 50%;
+    border: none;
+    background-color: ${props => props.theme.body};
+    color: ${props => props.theme.fontColor};
+    &:focus {
+        outline: none;
+    }
+
+`;
+
 function App() {
-  // const title = 'Hi shuhrat';
+  const [theme, setTheme] = useState("light");
 
+  function themeToggler() {
+    theme === "light" ? setTheme("dark") : setTheme("light");
+
+  };
+
+
+  const icon = theme === "light" ? <HiMoon size={35} /> : <CgSun size={35} />;
   return (
+
     <Router>
-      <div className="App">
-        <Navbar></Navbar>
-        <div className="content">
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/create">
-              <Create />
-            </Route>
-            <Route path='/test'>
-              <Test />
-            </Route>
+      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
 
+        <GlobalStyles />
+        <StyledApp className="App" >
+          <Toggle onClick={themeToggler}>
+            {icon}</Toggle>
+          <Navbar></Navbar>
+          <div className="content">
+            <Switch>
+              <Route exact path="/home">
+                <Home />
+              </Route>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/create">
+                <Create />
+              </Route>
+              <Route path='/test'>
+                <Test />
+              </Route>
+            </Switch>
+          </div>
+        </StyledApp>
 
-          </Switch>
-        </div>
-      </div>
+      </ThemeProvider>
+
     </Router>
   );
 }
