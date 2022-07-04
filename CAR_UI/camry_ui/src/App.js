@@ -46,7 +46,7 @@ function App() {
 
     <Router>
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-
+        <h4 style={{ color: "#fdba00", position: 'absolute', top: '20px', left: '45%' }}>Proceed with Caution!</h4>
         <GlobalStyles />
         <StyledApp className="App" >
           <Toggle onClick={themeToggler}>

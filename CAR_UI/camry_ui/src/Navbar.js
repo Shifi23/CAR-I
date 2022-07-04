@@ -13,7 +13,7 @@ const Navbar = () => {
         setInterval(() => setDateState(new Date()), 30000);
     }, []);
 
-    const welcome = ((hour < 3 && "Its Late, Drive Safe") || (hour < 12 && "Good Morning") || (hour < 17 && "Good Afternoon") || (hour < 22 && "Good Evening")) + " Shuhrat"
+    const welcome = ((hour >= 22 && "Its Late, Drive Safe") || (hour < 12 && "Good Morning") || (hour < 17 && "Good Afternoon") || (hour < 22 && "Good Evening")) + " Shuhrat"
     const [door, setDoor] = useState("Locked");
 
     return (
@@ -26,7 +26,7 @@ const Navbar = () => {
             <div className="links">
                 <Link to="/home">Home</Link>
                 {/* <Link to="/create">Create</Link> */}
-                <Link to="/test" >Test</Link>
+                <Link to="/test" >Test-beta</Link>
             </div>
 
             <a>

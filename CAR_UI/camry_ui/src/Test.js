@@ -122,10 +122,10 @@ const Test = () => {
                         <button onClick={handleCLick_LI}>Parking Lights</button>
                     </div>
 
-                    <h3 style={{ paddingTop: "40px" }}>System Status Messages:</h3>
-                    <p style={{ paddingTop: "10px" }}>Engine Status: {engine_status}</p>
-                    <p>Parking Light Status: {lights}</p>
-                    <p>Doors Status: {door}</p>
+                    <h3 style={{ paddingTop: "40px" }}>Stats:</h3>
+                    <p style={{ paddingTop: "10px" }}>Engine: {engine_status}</p>
+                    <p>Parking Lights: {lights}</p>
+                    <p style={{ paddingBottom: "10px" }} >Doors: {door}</p>
                     <div className="lockunlock">
                         <span className={door === "Unlocked" ? "lock unlocked" : "lock"}></span>
                     </div>
@@ -134,7 +134,7 @@ const Test = () => {
 
                 <div className="grid-child">
                     <h3>Camera's:</h3>
-                    <img src={"http://localhost:5000/camera"} alt='Front Camera' width={320} height={240} ></img>
+                    {/* <img src={"http://localhost:5000/camera"} alt='Front Camera' width={320} height={240} ></img> */}
                     {/* <img src={"http://localhost:5000/camera"} alt='Front Camera' width={320} height={240} ></img> */}
 
 
@@ -142,7 +142,7 @@ const Test = () => {
                 </div>
 
                 <div className="grid-child">
-                    <h3>Ultrasound Sensor Data:</h3>
+                    <h3>Proximity Sensor's:</h3>
                     <Ultrasound></Ultrasound>
 
 
@@ -150,7 +150,7 @@ const Test = () => {
 
                 </div>
                 <div className="grid-child">
-                    <h3>OBD-II Data:</h3>
+                    <h3>OBD-II:</h3>
                     <p style={{ paddingTop: "10px" }} onClick={handleCLick_VOL}>Voltage: {voltage}</p>
                     <p> Speed: Igniton is off</p>
                     <p> RPM: Igniton is off</p>
