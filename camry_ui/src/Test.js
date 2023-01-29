@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import Ultrasound from "./Ultrasound";
 import styled from "styled-components";
 import Webcam from "react-webcam";
@@ -114,25 +114,25 @@ const Test = () => {
 
 
 
-    const [devices, setDevices] = useState([]);
+    // const [devices, setDevices] = useState([]);
   
-    const handleDevices = useCallback(
-      mediaDevices =>
-        setDevices(mediaDevices.filter(({ kind }) => kind === "videoinput")),
-      [setDevices],
+    // const handleDevices = useCallback(
+    //   mediaDevices =>
+    //     setDevices(mediaDevices.filter(({ kind }) => kind === "videoinput")),
+    //   [setDevices],
       
-    );
+    // );
     
   
-    useEffect(
-      () => {
-        navigator.mediaDevices.enumerateDevices().then(handleDevices);
-      },
-      [handleDevices]
-    );
+    // useEffect(
+    //   () => {
+    //     navigator.mediaDevices.enumerateDevices().then(handleDevices);
+    //   },
+    //   [handleDevices]
+    // );
 
-    devices.splice(2)
-    console.log(devices)
+    
+    // console.log(devices)
 
 
     return (
@@ -161,18 +161,10 @@ const Test = () => {
 
 
                 <div className="grid-child">
-                    <h3>Camera's:</h3>
-                    {devices.map((device, key) => (
-                    <div>
-                        <Webcam audio={false} videoConstraints={{ width: 480, height: 480, audio: "false", deviceId: device.deviceId }} />
-                        {device.label || `Device ${key + 1}`}
-                    </div>
-
-                    ))}
                     
 
-            {/* <Webcam videoConstraints={{width: 480, height: 480, audio: "false", deviceId: devices.deviceId}} />
-            <Webcam videoConstraints={{width: 480, height: 480, audio: "false", deviceId: devices.deviceId}} /> */}
+            <Webcam videoConstraints={{width: 480, height: 480, audio: "false", facingMode: "environment"}} />
+            <Webcam videoConstraints={{width: 480, height: 480, audio: "false",  facingMode: "user"}} />
        
   
 
