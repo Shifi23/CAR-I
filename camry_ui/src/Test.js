@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Ultrasound from "./Ultrasound";
 import styled from "styled-components";
 import Webcam from "react-webcam";
@@ -111,16 +111,28 @@ const Test = () => {
     }
 
 
-    const videoConstraints = {
-        width: 480,
-        height: 480,
-        facingMode: "user",
-        audio: "false",
-        deviceId: 0
-      };
 
 
 
+    const [devices, setDevices] = useState([]);
+  
+    const handleDevices = useCallback(
+      mediaDevices =>
+        setDevices(mediaDevices.filter(({ kind }) => kind === "videoinput")),
+      [setDevices],
+      
+    );
+    
+  
+    useEffect(
+      () => {
+        navigator.mediaDevices.enumerateDevices().then(handleDevices);
+      },
+      [handleDevices]
+    );
+
+    devices.splice(2)
+    console.log(devices)
 
 
     return (
@@ -150,9 +162,21 @@ const Test = () => {
 
                 <div className="grid-child">
                     <h3>Camera's:</h3>
-                    <Webcam
-                    videoConstraints={videoConstraints} 
-                    />
+                    {devices.map((device, key) => (
+                    <div>
+                        <Webcam audio={false} videoConstraints={{ width: 480, height: 480, audio: "false", deviceId: device.deviceId }} />
+                        {device.label || `Device ${key + 1}`}
+                    </div>
+
+                    ))}
+                    
+
+            {/* <Webcam videoConstraints={{width: 480, height: 480, audio: "false", deviceId: devices.deviceId}} />
+            <Webcam videoConstraints={{width: 480, height: 480, audio: "false", deviceId: devices.deviceId}} /> */}
+       
+  
+
+    
                     {/* <img src={"http://localhost:5000/camera"} alt='Front Camera' width={320} height={240} ></img> */}
                     {/* <img src={"http://localhost:5000/camera"} alt='Front Camera' width={320} height={240} ></img> */}
 
