@@ -9,29 +9,29 @@ const [FR,set_FR] = useState('off')
 
 
 
-// useEffect(() => {
+useEffect(() => {
 
-//     const interval = setInterval(() => {
-//         console.log('This will run every second!');
-//         fetch("http://localhost:5000/Ultrasound").then(
-//             res => res.text()
-//         ).then(
-//             FR => {
-//                 set_FR(FR)
+    const interval = setInterval(() => {
+        console.log('This will run every second!');
+        fetch("http://localhost:5000/Ultrasound").then(
+            res => res.text()
+        ).then(
+            FR => {
+                set_FR(FR)
     
     
-//             }
-//         )
+            }
+        )
         
 
-//       }, 1000);
+      }, 5000);
 
       
 
-//     return () => clearInterval(interval);
+    return () => clearInterval(interval);
 
 
-// });
+});
 
 
 

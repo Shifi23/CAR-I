@@ -95,6 +95,7 @@ def lights():
     except:
         return ("No Connection to Relay Controller")
 
+
 @app.route("/Voltage")
 @cross_origin()
 def Voltage():
@@ -102,6 +103,12 @@ def Voltage():
         return str(getV())
     except:
         return ("No Connection to OBD")
+
+
+@app.route("/Ultrasound")
+@cross_origin()
+def ua():
+    return "null"
 
 
 if __name__ == "__main__":

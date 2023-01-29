@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Ultrasound from "./Ultrasound";
 import styled from "styled-components";
+import Webcam from "react-webcam";
 
 const Button = styled.button`
   background-color: #050a40;
@@ -110,7 +111,13 @@ const Test = () => {
     }
 
 
-
+    const videoConstraints = {
+        width: 480,
+        height: 480,
+        facingMode: "user",
+        audio: "false",
+        deviceId: 0
+      };
 
 
 
@@ -143,6 +150,9 @@ const Test = () => {
 
                 <div className="grid-child">
                     <h3>Camera's:</h3>
+                    <Webcam
+                    videoConstraints={videoConstraints} 
+                    />
                     {/* <img src={"http://localhost:5000/camera"} alt='Front Camera' width={320} height={240} ></img> */}
                     {/* <img src={"http://localhost:5000/camera"} alt='Front Camera' width={320} height={240} ></img> */}
 
