@@ -13,7 +13,7 @@
 }
 
 .navbar {
-  padding: 10px;
+  padding: 15px;
   position: fixed;
   align-items: center;
   bottom: 0;
@@ -46,9 +46,10 @@
 }
 
 
-/* .navbar a:hover {
+
+.navbar a:hover {
   color: #3e96fc;
-} */
+}
 
 .content {
   /* max-width: 600px; */
@@ -59,12 +60,14 @@
 
 
 
+
+
 .btn-group button {
   padding: 10px 24px;
   /* Some padding */
   cursor: pointer;
   /* Pointer/hand icon */
-  width: 200px;
+  width: 150px;
   /* Set a width if needed */
   display: block;
   /* Make the buttons appear below each other */
@@ -74,10 +77,12 @@
 
 
 
+
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 1px;
+  grid-gap: 20px;
+
 }
 
 

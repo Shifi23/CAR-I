@@ -1,5 +1,15 @@
 import { useState } from "react";
 import Ultrasound from "./Ultrasound";
+import styled from "styled-components";
+import Webcam from "react-webcam";
+
+const Button = styled.button`
+  background-color: #050a40;
+  color: white;
+  padding: 10px 60px;
+  border-radius: 5px;
+  cursor: pointer;
+`;
 
 
 
@@ -101,7 +111,13 @@ const Test = () => {
     }
 
 
-
+    const videoConstraints = {
+        width: 480,
+        height: 480,
+        facingMode: "user",
+        audio: "false",
+        deviceId: 0
+      };
 
 
 
@@ -115,11 +131,11 @@ const Test = () => {
                 <div className="grid-child">
                     <h3>Controls:</h3>
                     <div className="btn-group">
-                        <button onClick={handleCLick_EN}>Start Engine</button>
-                        <button onClick={handleCLick_ENS}>Stop Engine</button>
-                        <button onClick={handleCLick_UL}>Unlock Doors</button>
-                        <button onClick={handleCLick_LOC}>Lock Doors</button>
-                        <button onClick={handleCLick_LI}>Parking Lights</button>
+                        <Button onClick={handleCLick_EN}>Start Engine</Button>
+                        <Button onClick={handleCLick_ENS}>Stop Engine</Button>
+                        <Button onClick={handleCLick_UL}>Unlock Doors</Button>
+                        <Button onClick={handleCLick_LOC}>Lock Doors</Button>
+                        <Button onClick={handleCLick_LI}>Parking Lights</Button>
                     </div>
 
                     <h3 style={{ paddingTop: "40px" }}>Stats:</h3>
@@ -134,6 +150,9 @@ const Test = () => {
 
                 <div className="grid-child">
                     <h3>Camera's:</h3>
+                    <Webcam
+                    videoConstraints={videoConstraints} 
+                    />
                     {/* <img src={"http://localhost:5000/camera"} alt='Front Camera' width={320} height={240} ></img> */}
                     {/* <img src={"http://localhost:5000/camera"} alt='Front Camera' width={320} height={240} ></img> */}
 

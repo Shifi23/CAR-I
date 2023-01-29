@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
-import logo from './images/logo.png';
-import { lightTheme, darkTheme, GlobalStyles } from "./themes.js";
-import styled, { ThemeProvider } from "styled-components";
+
 
 const Navbar = () => {
 
@@ -15,6 +13,18 @@ const Navbar = () => {
 
     const welcome = ((hour >= 22 && "Its Late, Drive Safe") || (hour < 12 && "Good Morning") || (hour < 17 && "Good Afternoon") || (hour < 22 && "Good Evening")) + " Shuhrat"
     const [door, setDoor] = useState("Locked");
+
+
+    const handleCLick_UL = () => {
+        if (door === "Unlocked") {
+            setDoor("Locked")
+
+        } else {
+            setDoor("Unlocked")
+        }
+
+
+    }
 
     return (
 
@@ -29,7 +39,9 @@ const Navbar = () => {
                 <Link to="/test" >Test-beta</Link>
             </div>
 
-            <a>
+
+
+            <h4>
                 {dateState.toLocaleDateString('en-US', {
                     weekday: 'long',
                     month: 'short',
@@ -43,11 +55,13 @@ const Navbar = () => {
                     hour12: true,
                 })}
                 &nbsp;&nbsp;&nbsp;&nbsp;
-            </a>
+            </h4>
 
             <div className="lockunlock">
-                <span className={door === "Unlocked" ? "lock unlocked" : "lock"}></span>
+                <span onClick={handleCLick_UL} className={door === "Unlocked" ? "lock unlocked" : "lock"}></span>
             </div>
+
+
 
         </nav>
     );
