@@ -115,15 +115,15 @@ const Test = () => {
 
 
     // const [devices, setDevices] = useState([]);
-  
+
     // const handleDevices = useCallback(
     //   mediaDevices =>
     //     setDevices(mediaDevices.filter(({ kind }) => kind === "videoinput")),
     //   [setDevices],
-      
+
     // );
-    
-  
+
+
     // useEffect(
     //   () => {
     //     navigator.mediaDevices.enumerateDevices().then(handleDevices);
@@ -131,7 +131,7 @@ const Test = () => {
     //   [handleDevices]
     // );
 
-    
+
     // console.log(devices)
 
 
@@ -161,15 +161,15 @@ const Test = () => {
 
 
                 <div className="grid-child">
-                    
 
-            {/* <Webcam videoConstraints={{width: 480, height: 480, audio: "false", facingMode: "environment"}} /> */}
-            {/* <Webcam videoConstraints={{width: 480, height: 480, audio: "false",  facingMode: "user"}} /> */}
-       
-  
 
-    
-                    <img src={"http://localhost:5000/camera"} alt='Front Camera' width={320} height={240} ></img>
+                    <Webcam videoConstraints={{ width: 480, height: 480, audio: "false", facingMode: "environment" }} />
+                    {/* <Webcam videoConstraints={{width: 480, height: 480, audio: "false",  facingMode: "user"}} /> */}
+
+
+
+
+                    {/* <img src={"http://localhost:5000/camera"} alt='Front Camera' width={320} height={240} ></img> */}
                     {/* <img src={"http://localhost:5000/camera"} alt='Front Camera' width={320} height={240} ></img> */}
 
 
