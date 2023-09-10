@@ -3,6 +3,7 @@ from flask_cors import CORS, cross_origin
 import cv2
 from AR_RPI import *
 from obd_test import *
+import random
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -108,7 +109,11 @@ def Voltage():
 @app.route("/Ultrasound")
 @cross_origin()
 def ua():
-    return "null"
+    list1 = [1.3, 2.5, 3.1, 4.2, 5.2, 6.7]
+    data = {"front": [random.choice(list1), random.choice(list1), random.choice(list1), random.choice(list1)],
+            "rear": [random.choice(list1), random.choice(list1), random.choice(list1), random.choice(list1)]
+            }
+    return data
 
 
 if __name__ == "__main__":

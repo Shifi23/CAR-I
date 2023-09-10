@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 
 const Ultrasound = () => {
 
-const [FR,set_FR] = useState('off')
+const [sensor_data,set_sensor_data] = useState({"front": [1, 2, 4, 5],
+"rear": [1, 4, 6, 2]
+})
 
 
 
@@ -14,17 +16,13 @@ useEffect(() => {
     const interval = setInterval(() => {
         console.log('This will run every second!');
         fetch("http://localhost:5000/Ultrasound").then(
-            res => res.text()
+            res => res.json()
         ).then(
-            FR => {
-                set_FR(FR)
-    
-    
-            }
+            FR => 
+                set_sensor_data(FR)
         )
         
-
-      }, 5000);
+      }, 3000);
 
       
 
@@ -37,27 +35,18 @@ useEffect(() => {
 
 
 
-
-
-
-
-
-
-
-
-
-
     return ( 
         <>
-        <p style={{paddingTop: "10px"}}>FR: {FR}</p>
-        <p>FRC: {FR}</p>
-        <p>FLC: {FR}</p>
-        <p>FL: {FR}</p>
+        
+        <p style={{paddingTop: "10px"}}>FR: {sensor_data.front[0]}</p>
+        <p>FRC: {sensor_data.front[1]}</p>
+        <p>FLC: {sensor_data.front[2]}</p>
+        <p>FL: {sensor_data.front[3]}</p>
         <p>-------------------------------------</p>
-        <p>RR: {FR}</p>
-        <p>RRC: {FR}</p>
-        <p>RLC: {FR}</p>
-        <p>RL: {FR}</p>
+        <p>RR: {sensor_data.rear[0]}</p>
+        <p>RRC: {sensor_data.rear[1]}</p>
+        <p>RLC: {sensor_data.rear[2]}</p>
+        <p>RL: {sensor_data.rear[3]}</p>
         
         
         
@@ -71,3 +60,7 @@ useEffect(() => {
 }
  
 export default Ultrasound;
+
+
+
+

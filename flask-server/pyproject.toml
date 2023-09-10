@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "car-i"
+version = "0.1.0"
+description = "shuhrats car"
+authors = ["Shuhrat Talukder <shuhrat.talukder@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "car_i"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+flask = "^2.3.2"
+flask-cors = "^3.0.10"
+opencv-python = "^4.7.0.72"
+pyfirmata = "^1.1.0"
+obd = "^0.7.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry.scripts]
+server = "server"
