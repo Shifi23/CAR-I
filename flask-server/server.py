@@ -54,22 +54,24 @@ def video_feed1():
 
 @app.route("/StartCar")
 def EngineOn():
-    try:
-        if RunningFlag == 0:
-            return str(StartCar())
-        elif RunningFlag == 1:
-            return "Engine is running!!!"
+    # try:
+        # if RunningFlag == 0:
+            # return str(StartCar())
+        # elif RunningFlag == 1:
+            # return "Engine is running!!!"
 
-    except:
-        return ("No Connection to Relay Controller")
+    # except:
+        # return ("No Connection to Relay Controller")
+    pass
 
 
 @app.route("/StopCar")
 def EngineOff():
-    try:
-        return str(StopCar())
-    except:
-        return ("No Connection to Relay Controller")
+    # try:
+        # return str(StopCar())
+    # except:
+        # return ("No Connection to Relay Controller")
+    pass
 
 
 @app.route("/lockCar")
