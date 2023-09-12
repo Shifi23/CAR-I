@@ -41,6 +41,7 @@ while True:
             logger.info("device found %s" % (target_address))
             logger.info("Unlocking car...")
             UnlockCar()
+            flashpkl()
             logger.info("unlock")
             lastState = "connected"
             btsocket.close()
@@ -51,6 +52,7 @@ while True:
         if lastState == "connected" and "112" in str(e):
             logger.info("Locking car...")
             LockCar()
+            flashpkl()
             logger.info("lock")
             lastState = "away"
         time.sleep(sleepTime)
@@ -65,5 +67,6 @@ while True:
     # all other exceptions
     except:
         LockCar()
+        flashpkl()
         logger.info("lock")
         btsocket.close()

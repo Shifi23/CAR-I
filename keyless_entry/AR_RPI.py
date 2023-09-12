@@ -120,3 +120,12 @@ else:
             board.digital[PKL].write(1)
             pklS = 0
             return pklS
+        
+    def flashpkl():
+        board.digital[PKL].write(0)
+        time.sleep(0.5)
+        board.digital[PKL].write(1)
+        time.sleep(1)
+        board.digital[PKL].write(0)
+        time.sleep(0.5)
+        board.digital[PKL].write(1)
