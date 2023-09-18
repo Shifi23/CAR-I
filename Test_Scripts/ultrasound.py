@@ -50,21 +50,24 @@ def mes(pinTrigger,pinEcho,num,pos):
         distance = (TimeElapsed * 34300) / 2
         x=pos
         y = distance
-        plt.scatter(x,y)
+        # plt.scatter(x,y)
 
         print ("Distance "+ num +": %.1f cm" % distance)
-        time.sleep(0.1)
+        time.sleep(1)
         break
         
 #plt.show()
 while True:
-    mes(2,3,"FR",4)
-    mes(4,17,"FRC",3)
-    mes(27,22,"FLC",2)
-    mes(10,9,"FL",1)
-    mes(11,0,"RR",4)
-    mes(5,6,"RRC",3)
-    mes(13,19,"RLC",2)
-    mes(26,20,"RL",1)
-    plt.show()
-    plt.draw()
+    
+    
+    mes(4,17,"FL",4) # good
+    mes(27,22,"FLC",3) # good
+    mes(10,9,"FRC",2) # good
+    mes(11,0,"FR",1) # good (front right plugged in)
+
+    # mes(2,3,"RR",4) # bad (rear right plugged in)
+    # mes(5,6,"RRC",3) # bad
+    # mes(13,19,"RLC",2) #bad
+    # mes(26,20,"RL",1) # good
+    # plt.show()
+    # plt.draw()
